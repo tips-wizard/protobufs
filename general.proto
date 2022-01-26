@@ -1,4 +1,6 @@
 syntax = "proto3";
+package tipswizard.protobufs;
+option go_package = "/;protobufs";
 
 message FindRequest {
     string parameter = 1; // Could be an ID, search string, etc.

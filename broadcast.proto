@@ -1,6 +1,6 @@
 syntax = "proto3";
-
-package tipswizard.protobuf;
+package tipswizard.protobufs;
+option go_package = "/;protobufs";
 
 import "general.proto";
 
