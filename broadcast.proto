@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package tipswizard.protobuf;
+
+import "general.proto";
+
+service BroadcastService() {
+    rpc Transmit(ExtractedInput) returns (Empty);
+}
+

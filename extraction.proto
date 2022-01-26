@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package tipswizard.protobuf;
+
+message ExtractedInput {
+    string source = 1;
+    string url = 2;
+    map<string, int> odds = 3;
+    google.protobuf.Timestamp time = 4;
+}

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+message FindRequest {
+    string parameter = 1; // Could be an ID, search string, etc.
+}
+
+message FindListRequest {
+    repeated string ids = 1;
+}
+
+message Empty {
+}
