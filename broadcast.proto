@@ -3,6 +3,7 @@ package tipswizard.protobufs;
 option go_package = "/;protobufs";
 
 import "general.proto";
+import "extraction.proto";
 
 service BroadcastService {
     rpc Transmit(ExtractedInput) returns (Empty);

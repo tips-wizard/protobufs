@@ -2,9 +2,11 @@ syntax = "proto3";
 package tipswizard.protobufs;
 option go_package = "/;protobufs";
 
+import "google/protobuf/timestamp.proto";
+
 message ExtractedInput {
     string source = 1;
     string url = 2;
-    map<string, int> odds = 3;
+    map<string, int64> odds = 3;
     google.protobuf.Timestamp time = 4;
 }
