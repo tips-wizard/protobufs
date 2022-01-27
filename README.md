@@ -7,13 +7,5 @@ The examples also use an `example.proto` as the target file. Make sure you repla
 
 ### Go
 ```
-protoc --proto_path=$PROTO_SRC --go_out=$WORKSPACE_FOLDER/protobufs $PROTO_SRC/example.proto
-```
-
-### Typescript
-```
-PROTO_OUT=$WORKSPACE_FOLDER/src/protobufs \
-&& protoc -I=$PROTO_SRC $PROTO_SRC/example.proto \
---js_out=import_style=commonjs,binary:$PROTO_OUT \
---grpc-web_out=import_style=typescript,mode=grpcwebtext:$PROTO_OUT
+protoc --proto_path=$PROTO_SRC --go-grpc_out=$WORKSPACE_FOLDER/protobufs $PROTO_SRC/example.proto
 ```

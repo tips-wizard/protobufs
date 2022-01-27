@@ -5,6 +5,6 @@ option go_package = "/;protobufs";
 import "general.proto";
 import "extraction.proto";
 
-service BroadcastService {
+service Broadcast {
     rpc Transmit(ExtractedInput) returns (Empty);
 }
