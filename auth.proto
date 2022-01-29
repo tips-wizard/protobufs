@@ -1,0 +1,31 @@
+syntax = "proto3";
+package tipswizard.protobufs;
+option go_package = "/;protobufs";
+
+import "general.proto";
+import "google/protobuf/timestamp.proto";
+
+service Auth {
+    rpc CreateAccount(CreateAccountRequest) returns (AccountResponse);
+
+    rpc Login(LoginRequest) returns (Empty);
+}
+
+message CreateAccountRequest {
+    string email = 1;
+    string password = 2;
+    string name = 3;
+}
+
+message LoginRequest {
+    string email = 1;
+    string password = 2;
+}
+
+message AccountResponse {
+    int64 id = 1;
+    string email = 2;
+    string name = 3;
+    google.protobuf.Timestamp updated_at = 4;
+    google.protobuf.Timestamp created_at = 5;
+};

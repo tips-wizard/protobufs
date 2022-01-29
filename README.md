@@ -7,5 +7,5 @@ The examples also use an `example.proto` as the target file. Make sure you repla
 
 ### Go
 ```
-protoc --proto_path=$PROTO_SRC --go-grpc_out=$WORKSPACE_FOLDER/protobufs $PROTO_SRC/example.proto
+protoc --proto_path=$PROTO_SRC --go_out=$WORKSPACE_FOLDER/protobufs --go-grpc_out=$WORKSPACE_FOLDER/protobufs $PROTO_SRC/example.proto
 ```
