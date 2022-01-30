@@ -10,3 +10,9 @@ message ExtractedInput {
     map<string, int64> odds = 3;
     google.protobuf.Timestamp time = 4;
 }
+
+enum EventOddType {
+    EVENT_ODD_TYPE_UNKNOWN = 0;
+    EVENT_ODD_TYPE_ML = 1;
+    EVENT_ODD_TYPE_DNB = 2;
+}

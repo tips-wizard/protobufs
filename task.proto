@@ -1,0 +1,16 @@
+syntax = "proto3";
+package tipswizard.protobufs;
+option go_package = "/;protobufs";
+
+enum TaskActionType {
+    TASK_ACTION_TYPE_UNKNOWN = 0;
+    TASK_ACTION_TYPE_NOTIFY = 1;
+}
+
+enum TaskConditionalType {
+    TASK_CONDITIONAL_TYPE_UNKNOWN = 0;
+    TASK_CONDITIONAL_TYPE_EQUALS = 1;
+    TASK_CONDITIONAL_TYPE_NOT_EQUALS = 2;
+    TASK_CONDITIONAL_TYPE_GREATER = 3;
+    TASK_CONDITIONAL_TYPE_LESSER = 4;
+}
