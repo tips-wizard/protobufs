@@ -7,6 +7,9 @@ import "google/protobuf/timestamp.proto";
 
 service Auth {
     rpc CreateAccount(CreateAccountRequest) returns (AccountResponse);
+    rpc GetAccount(FindRequest) returns (AccountResponse);
+    rpc UpdateAccount(FindRequest) returns (AccountResponse);
+    rpc DeleteAccount(FindRequest) returns (Empty);
 
     rpc Login(LoginRequest) returns (Empty);
 }
