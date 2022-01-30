@@ -8,3 +8,8 @@ import "extraction.proto";
 service Broadcast {
     rpc Transmit(ExtractedInput) returns (Empty);
 }
+
+enum BroadcastChannelType {
+    BROADCAST_CHANNEL_TYPE_UNKNOWN = 0;
+    BROADCAST_CHANNEL_TYPE_TELEGRAM = 1;
+};
