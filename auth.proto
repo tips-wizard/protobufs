@@ -11,7 +11,7 @@ service Auth {
     rpc UpdateAccountDetails(UpdateAccountDetailsRequest) returns (Empty);
     rpc DeleteAccount(FindRequest) returns (Empty);
 
-    rpc Login(LoginRequest) returns (Empty);
+    rpc Login(LoginRequest) returns (AccountResponse);
 }
 
 message AccountDetails {
