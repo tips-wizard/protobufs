@@ -7,6 +7,22 @@ import "extraction.proto";
 
 service Broadcast {
     rpc Transmit(ExtractedInput) returns (Empty);
+    rpc TelegramRegisterCode(TelegramRegisterCodeRequest) returns (TelegramRegisterCodeResponse);
+}
+
+message BroadcastChannel {
+    uint64 id = 1;
+    uint64 account_id = 2;
+    BroadcastChannelType type = 3;
+    string key = 4; // The key's primary use is to work as an authentication to a given channel. The actual value of the key varies depending on the type channel. It could even be a stringified JSON if necessary. Check the documentation for what value is stored for the key for each type.
+}
+
+message TelegramRegisterCodeRequest{
+    uint64 account_id = 1;
+}
+
+message TelegramRegisterCodeResponse {
+    string code = 1;
 }
 
 enum BroadcastChannelType {
