@@ -4,9 +4,35 @@ option go_package = "/;protobufs";
 
 import "google/protobuf/timestamp.proto";
 
+/* TO-DO: Add a "Source" and a SourceBooks enum to indicate from what book the input was extracted from. */
 message ExtractedInput {
-    string source = 1;
+    EventSourceType source = 1;
     string url = 2;
-    map<string, int64> odds = 3;
-    google.protobuf.Timestamp time = 4;
+    repeated EventOdd odds = 3;
+    Event event = 4;
+    google.protobuf.Timestamp time = 5;
+}
+
+message Event {
+    string name = 1;
+    string home = 2;
+    string challenger = 3;
+}
+
+message EventOdd {
+    EventOddType type = 1;
+    string variant = 2; // Some types may have multiple variants (i.e. HC +0.5 and HC +1.5 are both "HC" but different).
+    float value = 3;
+}
+
+enum EventOddType {
+    EVENT_ODD_TYPE_UNKNOWN = 0;
+    EVENT_ODD_TYPE_ML = 1;
+    EVENT_ODD_TYPE_DNB = 2;
+    EVENT_ODD_TYPE_DC = 3;
+}
+
+enum EventSourceType {
+    EVENT_SOURCE_TYPE_UNKNOWN = 0;
+    EVENT_SOURCE_TYPE_BET365 = 1;
 }

@@ -7,14 +7,27 @@ import "google/protobuf/timestamp.proto";
 
 service Auth {
     rpc CreateAccount(CreateAccountRequest) returns (AccountResponse);
+    rpc GetAccount(FindRequest) returns (AccountResponse);
+    rpc UpdateAccountDetails(UpdateAccountDetailsRequest) returns (Empty);
+    rpc DeleteAccount(FindRequest) returns (Empty);
 
-    rpc Login(LoginRequest) returns (Empty);
+    rpc Login(LoginRequest) returns (AccountResponse);
+}
+
+message AccountDetails {
+    // TO-DO: Add more account details.
+    string name = 1;
 }
 
 message CreateAccountRequest {
     string email = 1;
     string password = 2;
-    string name = 3;
+    AccountDetails details = 3;
+}
+
+message UpdateAccountDetailsRequest {
+    uint64 id = 1;
+    AccountDetails details = 2;
 }
 
 message LoginRequest {
@@ -23,9 +36,9 @@ message LoginRequest {
 }
 
 message AccountResponse {
-    int64 id = 1;
+    uint64 id = 1;
     string email = 2;
-    string name = 3;
+    AccountDetails details = 3;
     google.protobuf.Timestamp updated_at = 4;
     google.protobuf.Timestamp created_at = 5;
 };
