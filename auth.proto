@@ -11,7 +11,7 @@ service Auth {
     rpc UpdateAccountDetails(UpdateAccountDetailsRequest) returns (Empty);
     rpc DeleteAccount(FindRequest) returns (Empty);
 
-    rpc Login(LoginRequest) returns (AccountResponse);
+    rpc Login(LoginRequest) returns (LoginResponse);
 }
 
 message AccountDetails {
@@ -33,6 +33,12 @@ message UpdateAccountDetailsRequest {
 message LoginRequest {
     string email = 1;
     string password = 2;
+    string token = 3; // Optional
+}
+
+message LoginResponse {
+    string token = 1;
+    AccountResponse account = 2;
 }
 
 message AccountResponse {
